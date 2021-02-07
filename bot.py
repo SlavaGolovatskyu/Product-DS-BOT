@@ -8,9 +8,9 @@ db = sqlite3.connect("./db/sqlite.db")
 s = db.cursor()
 
 s.execute("""CREATE TABLE IF NOT EXISTS 
-		 Product(_id INTEGER PRIMARY KEY AUTOINCREMENT, name_product TEXT, type_product TEXT,
-		 company_product TEXT, model_product TEXT,
-		 price_product REAL, count_product INT)""")
+	  Product(_id INTEGER PRIMARY KEY AUTOINCREMENT, name_product TEXT, type_product TEXT,
+	  company_product TEXT, model_product TEXT,
+	  price_product REAL, count_product INT)""")
 db.commit()
 
 prefix = '/'
@@ -29,8 +29,8 @@ async def add_prod(ctx, *args):
 	if len(args) == 6:
 		if args[5].isdigit() and is_float(args[4]):
 			s.execute("""INSERT INTO Product(name_product, type_product,
-		 		 	 company_product, model_product,
-		 		 	 price_product, count_product) VALUES (?, ?, ?, ?, ?, ?)""", args)
+		 		  company_product, model_product,
+		 		  price_product, count_product) VALUES (?, ?, ?, ?, ?, ?)""", args)
 			db.commit()
 			await ctx.send(args[0])
 		else:
